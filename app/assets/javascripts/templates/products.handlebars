@@ -1,0 +1,21 @@
+<div class="span10">
+  {{#each products in groupsOfThree}}
+  <ul class="unstyled row">
+    {{#each product in products}}
+    <li class="span3">
+    <div class="thumbnail_container">
+      <a {{action showProduct product href=true}} {{bindAttr title="product.name"}}>
+        <img {{bindAttr alt="product.name" src="product.pictureUrl"}}>
+      </a>
+      <div class="price">{{currency product.price}}</div>
+      <div class="product_name">
+        <a {{action showProduct product href=true}}>
+          {{product.name}}
+        </a>
+      </div>
+    </div>
+    </li>
+    {{/each}}
+  </ul>
+  {{/each}}
+</div>

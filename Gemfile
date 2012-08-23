@@ -21,8 +21,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'ember-rails'
-
+gem 'ember-rails', '= 0.7.0'
+gem "twitter-bootstrap-rails"
+gem "active_model_serializers", :git => "git://github.com/josevalim/active_model_serializers.git"
+gem 'thin'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
