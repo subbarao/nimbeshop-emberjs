@@ -15,10 +15,18 @@ Myshop.Router = Ember.Router.extend
       index: Ember.Route.extend
         route: '/'
         connectOutlets: (router) ->
+          unless cart = router.get('cartController').get('cart')
+            transaction = router.get('store').transaction()
+            cart = transaction.createRecord(Myshop.Order)
+            router.get('applicationController').set('transaction', transaction)
 
           router.
             get('applicationController').
             connectOutlet('linkGroups', Myshop.LinkGroup.find())
+
+          router.
+            get('applicationController').
+            connectOutlet('cart', 'cart', cart)
 
           router.
             get('linkGroupsController').
