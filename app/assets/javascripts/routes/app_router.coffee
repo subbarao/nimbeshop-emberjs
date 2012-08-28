@@ -20,27 +20,14 @@ Myshop.Router = Ember.Router.extend
             get('applicationController').
             connectOutlet('linkGroups', Myshop.LinkGroup.find())
 
-          router.get('linkGroupsController').connectOutlet('products', 'products', Myshop.Product.find())
+          router.
+            get('linkGroupsController').
+            connectOutlet('products', 'products', Myshop.Product.find())
 
           return
 
     products: Ember.Route.extend
       route: '/products'
-
-      index: Ember.Route.extend
-        route: '/'
-        connectOutlets: (router) ->
-
-          router.
-            get('applicationController').
-            connectOutlet('products', Myshop.Product.find())
-
-          linkGroupsController = router.get('linkGroupsController')
-          linkGroupsController.set('content',  Myshop.LinkGroup.find())
-
-          router.get('productsController').set('linkGroupsController', linkGroupsController)
-
-          return
 
       show: Ember.Route.extend
         route: '/:product_id'
@@ -54,24 +41,11 @@ Myshop.Router = Ember.Router.extend
     productGroups: Ember.Route.extend
       route: '/product_groups'
 
-      index: Ember.Route.extend
-        route: '/'
-        connectOutlets: (router) ->
-
-          router.
-            get('applicationController').
-            connectOutlet('products', Myshop.Product.find())
-
-          linkGroupsController = router.get('linkGroupsController')
-          linkGroupsController.set('content',  Myshop.LinkGroup.find())
-
-          router.get('productsController').set('linkGroupsController', linkGroupsController)
-
-          return
-
       show: Ember.Route.extend
         route: '/:product_group_id'
         connectOutlets: (router, productGroup) ->
-          router.get('linkGroupsController').
+
+          router.
+            get('linkGroupsController').
             connectOutlet('products', 'products', productGroup.get('products'))
           return

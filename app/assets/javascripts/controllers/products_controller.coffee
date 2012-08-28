@@ -1,5 +1,4 @@
 Myshop.ProductsController = Ember.ArrayController.extend
-  linkGroupsController: null
   groupsOfThree: (->
     length = @.get('length')
     all = []
