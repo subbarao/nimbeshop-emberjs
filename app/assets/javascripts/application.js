@@ -15,8 +15,8 @@
 //= require accounting.min
 //= require twitter/bootstrap
 //= require handlebars
-//= require ember
-//= require ember-data
+//= require ember-latest.min
+//= require ember-data.min
 //= require_self
 //= require myshop
 Em.ENV.RAISE_ON_DEPRECATION = true

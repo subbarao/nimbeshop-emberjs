@@ -1,6 +1,9 @@
 Myshop.Router = Ember.Router.extend
   location: 'hash'
   root: Ember.Route.extend
+    homePage: Ember.Route.transitionTo('products.index')
+    showProduct: Ember.Route.transitionTo('products.show')
+
     index: Ember.Route.extend
       route: '/'
       redirectsTo: 'products.index'
@@ -10,11 +13,16 @@ Myshop.Router = Ember.Router.extend
 
       index: Ember.Route.extend
         route: '/'
-        showProduct: Ember.Route.transitionTo('show')
         connectOutlets: (router) ->
+
           router.
             get('applicationController').
             connectOutlet('products', Myshop.Product.find())
+
+          linkGroupsController = router.get('linkGroupsController')
+          linkGroupsController.set('content',  Myshop.LinkGroup.find())
+
+          router.get('productsController').set('linkGroupsController', linkGroupsController)
 
           return
 

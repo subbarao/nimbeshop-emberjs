@@ -1,5 +1,8 @@
 Myshop::Application.routes.draw do
 
+  resources :product_groups
+  resources :link_groups
+
           mount NimbleshopSimply::Engine,          :at => '/'
 
           mount NimbleshopAuthorizedotnet::Engine, :at => '/nimbleshop_authorizedotnet'

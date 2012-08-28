@@ -11,7 +11,7 @@ Myshop.ProductController = Ember.ObjectController.extend
     else
       @.get('pictureUrl')
 
-  ).property('pictures', 'previewing')
+  ).property('content.isLoaded', 'previewing')
 
   groupsOf: (->
     length = @.get('pictures.length')
