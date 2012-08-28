@@ -1,43 +1,19 @@
-
-<div class="row">
-    <div class="span12">
-        <div class="row">
-            <div class="span2">
-                <div class="sidebar-nav">
-                    {{#each linkGroup in linkGroupsController}}
-                    <div class="sidebar_block">
-                        <h3> {{linkGroup.name}} </h3>
-                        <ul class="unstyled">
-                            {{#each navigation in linkGroup.navigations}}
-                            <li>{{navigation.productGroup.name}}</li>
-                            {{/each}}
-                        </ul>
-                    </div>
-                    {{/each}}
-                </div>
-            </div>
-
-            <div class="span10">
-                {{#each products in groupsOfThree}}
-                <ul class="unstyled row">
-                    {{#each product in products}}
-                    <li class="span3">
-                    <div class="thumbnail_container">
-                        <a {{action showProduct product href=true}} {{bindAttr title="product.name"}}>
-                            <img {{bindAttr alt="product.name" src="product.pictureUrl"}}>
-                        </a>
-                        <div class="price">{{currency product.price}}</div>
-                        <div class="product_name">
-                            <a {{action showProduct product href=true}}>
-                                {{product.name}}
-                            </a>
-                        </div>
-                    </div>
-                    </li>
-                    {{/each}}
-                </ul>
-                {{/each}}
-            </div>
+{{#each products in groupsOfThree}}
+<ul class="unstyled row">
+    {{#each product in products}}
+    <li class="span3">
+    <div class="thumbnail_container">
+        <a {{action showProduct product href=true}} {{bindAttr title="product.name"}}>
+            <img {{bindAttr alt="product.name" src="product.pictureUrl"}}>
+        </a>
+        <div class="price">{{currency product.price}}</div>
+        <div class="product_name">
+            <a {{action showProduct product href=true}}>
+                {{product.name}}
+            </a>
         </div>
     </div>
-</div>
+    </li>
+    {{/each}}
+</ul>
+{{/each}}

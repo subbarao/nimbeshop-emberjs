@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="span12">
+        <div class="row">
+            <div class="span2">
+                <div class="sidebar-nav">
+                    {{#each linkGroup in content}}
+                    <div class="sidebar_block">
+                        <h3> {{linkGroup.name}} </h3>
+                        <ul class="unstyled">
+                            {{#each navigation in linkGroup.navigations}}
+                                <li>
+                                    <a {{action showProductGroup navigation.productGroup href="true"}}> 
+                                        {{navigation.productGroup.name}}
+                                    </a>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="span10">
+                {{outlet products}}
+            </div>
+        </div>
+    </div>
+</div>
